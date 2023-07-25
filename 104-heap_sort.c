@@ -12,11 +12,11 @@ void heap_sort(int *array, size_t size);
 
 void swap_ints(int *a, int *b)
 {
-	int etmp;
+	int aux;
 
-	temp = *a;
+	aux = *a;
 	*a = *b;
-	*b = temp;
+	*b = aux;
 }
 
 /**
@@ -29,7 +29,7 @@ void swap_ints(int *a, int *b)
 
 void max_heapify(int *array, size_t size, size_t base, size_t root)
 {
-	size_t left, right, large;
+	size_t large, left, right;
 
 	left = 2 * root + 1;
 	right = 2 * root + 2;
@@ -60,18 +60,18 @@ void max_heapify(int *array, size_t size, size_t base, size_t root)
 
 void heap_sort(int *array, size_t size)
 {
-	int j;
+	int k;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (j = (size / 2) - 1; j >= 0; j--)
-		max_heapify(array, size, size, j);
+	for (k = (size / 2) - 1; k >= 0; k--)
+		max_heapify(array, size, size, k);
 
-	for (j = size - 1; j > 0; j--)
+	for (k = size - 1; k > 0; k--)
 	{
-		swap_ints(array, array + j);
+		swap_ints(array, array + k);
 		print_array(array, size);
-		max_heapify(array, size, j, 0);
+		max_heapify(array, size, k, 0);
 	}
 }
