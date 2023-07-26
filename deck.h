@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 
-
 /**
  * struct card_s - Playing card
  *
